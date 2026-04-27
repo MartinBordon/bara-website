@@ -52,7 +52,12 @@
       justify-content: space-between;
       gap: 24px;
     }
-
+.brand-logo {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
     .brand-title {
       font-size: 24px;
       font-weight: 700;
@@ -405,10 +410,9 @@
 <body>
   <header>
     <div class="wrap header-inner">
-      <div>
-        <div class="brand-title">BARA</div>
-        <div class="brand-subtitle">Bordón Academic Research Advisory</div>
-      </div>
+      <div class="brand">
+  <img src="bara-logo.png" alt="BARA — Bordón Academic Research Advisory" class="brand-logo">
+</div>
 
       <nav>
         <a href="#about">About</a>
@@ -555,9 +559,7 @@
             </div>
           </div>
 
-          <div class="contact-note">
-            Update contact details once the domain and email are active.
-          </div>
+
         </div>
       </div>
     </section>
