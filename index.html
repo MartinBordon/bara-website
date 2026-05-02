@@ -1,218 +1,833 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BARA — Bordón Academic Research Advisory</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BARA — Bordón Academic Research Advisory</title>
 
-<style>
-:root {
-  --bg: #f8fafc;
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #0b1f3a;
-}
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --soft: #eef3f8;
+      --line: #d9e3ef;
+      --navy: #071f3d;
+      --gold: #b88a2b;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      --radius: 24px;
+    }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-  background: var(--bg);
-  color: var(--text);
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.wrap {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 24px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* HEADER */
-header {
-  background: var(--accent);
-  padding: 16px 0;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
 
-.logo img {
-  height: 40px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      margin: 0 0 18px;
+      text-align: justify;
+    }
 
-.menu a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  font-size: 14px;
-}
+    .wrap {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
 
-/* HERO */
-.hero {
-  padding: 80px 0 40px;
-}
+    header {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-.hero h1 {
-  font-size: 36px;
-}
+    .nav {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.hero p {
-  color: var(--muted);
-  max-width: 600px;
-}
+    .brand img {
+      height: 68px;
+      width: auto;
+      display: block;
+      background: white;
+      padding: 5px 10px;
+      border-radius: 2px;
+    }
 
-.btn {
-  margin-top: 20px;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
+    .menu {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
 
-.primary {
-  background: var(--accent);
-  color: white;
-}
+    .menu a {
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      opacity: 0.95;
+    }
 
-/* TRUSTED */
-.trusted {
-  margin-top: 40px;
-}
+    .menu a:hover {
+      color: #f6d98b;
+    }
 
-.logos {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  margin-top: 10px;
-}
+    .hero {
+      padding: 88px 0 72px;
+      background:
+        radial-gradient(circle at top right, rgba(184,138,43,0.10), transparent 34%),
+        linear-gradient(180deg, #f8fafc 0%, #eef3f8 100%);
+      border-bottom: 1px solid var(--line);
+    }
 
-.logos img {
-  height: 40px;
-  filter: grayscale(100%);
-  opacity: 0.8;
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 64px;
+      align-items: center;
+    }
 
-/* SECTIONS */
-.section {
-  margin-top: 80px;
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: white;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
-.section h2 {
-  margin-bottom: 20px;
-}
+    h1 {
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      margin: 24px 0 24px;
+      color: var(--text);
+    }
 
-/* SERVICES */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
+    .hero p {
+      max-width: 680px;
+      font-size: 18px;
+    }
 
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-}
+    .actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 30px;
+    }
 
-/* FOOTER */
-footer {
-  margin-top: 80px;
-  padding: 40px 0;
-  border-top: 1px solid #e2e8f0;
-  color: var(--muted);
-}
-</style>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid var(--navy);
+    }
+
+    .btn.primary {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn.secondary {
+      background: white;
+      color: var(--navy);
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .signal {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .signal:last-child {
+      border-bottom: 0;
+    }
+
+    .signal span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .signal strong {
+      display: block;
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .credibility {
+      background: white;
+      border-bottom: 1px solid var(--line);
+      padding: 30px 0;
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .cred-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      flex-wrap: wrap;
+    }
+
+    .logos img {
+      max-height: 46px;
+      max-width: 150px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.78;
+    }
+
+    .logos img.mef {
+      max-height: 52px;
+      max-width: 170px;
+    }
+
+    .journals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .journal-pill {
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 54px;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    h3 {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .cards-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .cards-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+    .research-list article {
+      padding: 0 0 22px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .research-list article:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .research-list h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .research-list p {
+      font-size: 15px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .link {
+      font-weight: 800;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .identity {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .identity-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .identity-row:last-child {
+      border-bottom: 0;
+    }
+
+    .identity-row strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .identity-row span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      max-width: 620px;
+    }
+
+    .email-box {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      background: #f8fafc;
+    }
+
+    .email-box span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .email-box strong {
+      font-size: 16px;
+    }
+
+    footer {
+      padding: 34px 0;
+      background: var(--navy);
+      color: white;
+    }
+
+    footer .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      font-size: 14px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .brand img {
+        height: 58px;
+      }
+
+      .menu {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-grid,
+      .cred-grid,
+      .section-head,
+      .cards-2,
+      .identity {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .cards-4 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .logos {
+        gap: 22px;
+      }
+
+      .logos img,
+      .logos img.mef {
+        max-width: 120px;
+        max-height: 42px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <div class="wrap nav">
-    <div class="logo">
-      <img src="bara-logo.png">
-    </div>
-    <div class="menu">
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Research</a>
-      <a href="#">Contact</a>
-    </div>
+    <a class="brand" href="#top" aria-label="BARA homepage">
+      <img src="bara-logo.png" alt="BARA — Bordón Academic Research Advisory logo">
+    </a>
+
+    <nav class="menu">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#research">Research</a>
+      <a href="#partners">Partners</a>
+      <a href="#profile">Profile</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<div class="wrap">
+<main id="top">
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Economic research and policy advisory for public institutions</h1>
-  <p>Specialized in energy economics, public policy, and institutional decision-making.</p>
-  <button class="btn primary">Contact</button>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Independent academic and policy advisory</div>
+        <h1>Applied economic research and advisory for public policy.</h1>
+        <p>
+          BARA is an independent academic research and advisory practice based in Paraguay. It supports public institutions, organizations, and research partners through rigorous economic analysis, policy-oriented research, and technically grounded advisory work.
+        </p>
 
-  <!-- TRUSTED -->
-  <div class="trusted">
-    <p><strong>Trusted by</strong></p>
-    <div class="logos">
-      <img src="mef-logo.png">
-      <img src="caf-logo.jpeg">
-      <img src="oei-logo.png">
+        <div class="actions">
+          <a class="btn primary" href="#contact">Contact</a>
+          <a class="btn secondary" href="#research">View research</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="signal">
+          <span>Core fields</span>
+          <strong>Economic analysis · Public policy · Energy economics</strong>
+        </div>
+
+        <div class="signal">
+          <span>Approach</span>
+          <strong>Academic methods translated into policy-relevant evidence</strong>
+        </div>
+
+        <div class="signal">
+          <span>Outputs</span>
+          <strong>Research papers, policy reports, advisory notes, and technical briefs</strong>
+        </div>
+      </aside>
     </div>
+  </section>
 
-    <p style="margin-top:20px;"><strong>Published in</strong></p>
-    <p>Energy Efficiency · Energy for Sustainable Development</p>
+  <div class="credibility">
+    <div class="wrap cred-grid">
+      <div>
+        <div class="cred-title">Trusted by / institutional work</div>
+        <div class="logos">
+          <img class="mef" src="mef-logo.png" alt="Ministerio de Economía y Finanzas Paraguay">
+          <img src="caf-logo.jpeg" alt="CAF — Banco de Desarrollo de América Latina y el Caribe">
+          <img src="oei-logo.png" alt="Organización de Estados Iberoamericanos">
+        </div>
+      </div>
+
+      <div>
+        <div class="cred-title">Published in</div>
+        <div class="journals">
+          <span class="journal-pill">Energy Efficiency</span>
+          <span class="journal-pill">Energy for Sustainable Development</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-</section>
+  <section id="about">
+    <div class="wrap section-head">
+      <h2>About</h2>
 
-<!-- ABOUT -->
-<section class="section">
-  <h2>About</h2>
-  <p>BARA is an independent academic research and advisory platform based in Paraguay. It provides rigorous economic analysis and policy-oriented research for public institutions and organizations.</p>
-</section>
+      <div>
+        <p>
+          Bordón Academic Research Advisory (BARA) is an independent platform created to provide academically grounded research and advisory services. It is designed for institutions and organizations that require technically robust analysis with clear policy implications.
+        </p>
 
-<!-- SERVICES -->
-<section class="section">
-  <h2>Services</h2>
-  <div class="grid">
-    <div class="card">Research & Analysis</div>
-    <div class="card">Policy Advisory</div>
-    <div class="card">Data & Indicators</div>
-    <div class="card">Technical Writing</div>
+        <p>
+          The practice supports work across applied economics and public policy, with a particular emphasis on energy economics, energy poverty, rebound effects, electricity systems, and quantitative policy analysis. Its work combines empirical methods, theoretical grounding, and institutional understanding.
+        </p>
+
+        <p>
+          BARA operates as a flexible research advisory platform, collaborating with researchers and professionals across complementary fields when required. The objective is to produce work that is methodologically consistent, analytically useful, and clearly communicated for decision-making.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p>
+          BARA provides research and advisory support for institutions, organizations, and projects requiring rigorous economic analysis with practical policy relevance.
+        </p>
+      </div>
+
+      <div class="cards-4">
+        <div class="card">
+          <h3>Research and analysis</h3>
+          <p>
+            Applied research across economics and public policy, combining empirical analysis, academic literature, and institutional interpretation.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Policy advisory</h3>
+          <p>
+            Support for public institutions and organizations in policy design, evaluation, strategy, and evidence-based decision-making.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Data and indicators</h3>
+          <p>
+            Development, interpretation, and communication of datasets, indicators, and statistical outputs for policy and institutional analysis.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Technical writing</h3>
+          <p>
+            Preparation of research reports, policy briefs, advisory notes, working papers, and review-ready academic materials.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Research</h2>
+        <p>
+          BARA’s research activity connects peer-reviewed academic work, working papers, and policy-oriented analysis, with a focus on energy economics, rebound effects, household energy demand, and energy poverty.
+        </p>
+      </div>
+
+      <div class="cards-2">
+        <div class="card">
+          <h3>Selected publications</h3>
+
+          <div class="research-list">
+            <article>
+              <h4>The direct rebound effect for two income groups: The case of Paraguay</h4>
+              <p>
+                Bordón-Lesme, M., Freire-González, J., & Padilla, E. (2022). Energy for Sustainable Development.
+              </p>
+              <a class="link" href="https://doi.org/10.1016/j.esd.2022.08.001" target="_blank" rel="noopener">View publication</a>
+            </article>
+
+            <article>
+              <h4>Do household energy services affect each other directly? The direct rebound effect of household electricity consumption in Spain</h4>
+              <p>
+                Bordón-Lesme, M., Freire-González, J., & Padilla, E. (2022). Energy Efficiency.
+              </p>
+              <a class="link" href="https://doi.org/10.1007/s12053-022-10031-2" target="_blank" rel="noopener">View publication</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Working papers</h3>
+
+          <div class="research-list">
+            <article>
+              <h4>Worldwide Rebound Effects: A Multiregional Input–Output Analysis</h4>
+              <p>Freire-González, J., Chen, Q., & Bordón-Lesme, M. Working paper.</p>
+            </article>
+
+            <article>
+              <h4>Energy Poverty Index for Paraguay: Measurement and Policy Implications</h4>
+              <p>Bordón-Lesme, M. Working paper.</p>
+            </article>
+
+            <article>
+              <h4>System Dynamic Analysis of Energy Consumption and the Rebound Effect</h4>
+              <p>Bordón-Lesme, M., Blanco, G., Freire-González, J., & Padilla, E. Working paper.</p>
+            </article>
+
+            <article>
+              <h4>Charting Energy Transition: Assessing the Direct Rebound Effect of Natural Gas in Spanish Households</h4>
+              <p>Bordón-Lesme, M. Working paper.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-2" style="margin-top:26px;">
+        <div class="card">
+          <h3>Research areas</h3>
+          <p>
+            Energy economics, energy poverty, rebound effects, household energy demand, electricity system analysis, energy transition, applied econometrics, input-output analysis, system dynamics, and policy evaluation.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Research orientation</h3>
+          <p>
+            The research agenda is designed to connect academic methods with public policy needs. It emphasizes technically grounded analysis, transparent assumptions, and policy-relevant interpretation for institutional decision-making.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Research Partners</h2>
+        <p>
+          BARA’s research platform is connected to an international academic network in applied economics, energy economics, environmental policy, and sustainability research.
+        </p>
+      </div>
+
+      <div class="cards-2">
+        <div class="card">
+          <h3>Jaume Freire-González</h3>
+          <p>
+            Research Scientist, Institute for Economic Analysis (IAE-CSIC) · Affiliated Professor, Barcelona School of Economics
+          </p>
+          <p>
+            Jaume Freire-González collaborates with BARA on research related to energy economics, environmental policy, rebound effects, and applied economic modelling.
+          </p>
+          <p>
+            He has held research positions at Harvard University and the University of Oxford, and has developed an international academic career focused on energy and climate change economics, water economics, environmental taxation, input-output analysis, econometrics, and computable general equilibrium models.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Energy economics</span>
+            <span class="tag">Rebound effects</span>
+            <span class="tag">Input-output analysis</span>
+            <span class="tag">Environmental policy</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Emilio Padilla Rosa</h3>
+          <p>
+            Professor of Applied Economics, Universitat Autònoma de Barcelona
+          </p>
+          <p>
+            Emilio Padilla Rosa is connected to BARA’s research agenda through previous co-authored research in energy and environmental economics.
+          </p>
+          <p>
+            His academic trajectory includes extensive work in ecological economics, energy economics, environmental policy, climate-related economic analysis, and applied economic research. His publication and citation record provide an important academic reference point for BARA’s research background.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Ecological economics</span>
+            <span class="tag">Energy economics</span>
+            <span class="tag">Environmental policy</span>
+            <span class="tag">Climate economics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Profile</h2>
+        <p>
+          BARA is led by Martín Bordón, whose professional work combines academic research, public policy advisory, and applied economic analysis.
+        </p>
+      </div>
+
+      <div class="identity">
+        <div class="card">
+          <h3>Founder</h3>
+          <p>
+            Founded by Martín Bordón (Bordón-Lesme), economic researcher and policy advisor specializing in energy economics and public policy. His academic publications are indexed under the name Bordón-Lesme.
+          </p>
+          <p>
+            His work focuses on energy poverty, rebound effects, household energy demand, and electricity system analysis. He has published in peer-reviewed journals such as Energy Efficiency and Energy for Sustainable Development.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Professional identity</h3>
+
+          <div class="identity-row">
+            <strong>Professional name</strong>
+            <span>Martín Bordón</span>
+          </div>
+
+          <div class="identity-row">
+            <strong>Academic publications</strong>
+            <span>Indexed under Bordón-Lesme</span>
+          </div>
+
+          <div class="identity-row">
+            <strong>Affiliation</strong>
+            <span>Bordón Academic Research Advisory (BARA)</span>
+          </div>
+
+          <div class="identity-row">
+            <strong>Location</strong>
+            <span>Asunción, Paraguay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap section-head">
+      <h2>Contact</h2>
+
+      <div class="contact-card">
+        <p>
+          For institutional inquiries, research collaboration, advisory work, or editorial verification.
+        </p>
+
+        <div class="email-box">
+          <span>Email</span>
+          <strong>contact@bara-research.com</strong>
+        </div>
+
+        <p style="margin-top:22px; font-size:14px;">
+          BARA is an independent research and advisory platform. Academic publications by Martín Bordón are indexed under the name Martín Bordón-Lesme.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 BARA — Bordón Academic Research Advisory</div>
+    <div>Independent academic research and policy advisory</div>
   </div>
-</section>
-
-<!-- RESEARCH -->
-<section class="section">
-  <h2>Research</h2>
-  <p><strong>The direct rebound effect for two income groups</strong><br>Energy for Sustainable Development (2022)</p>
-  <p><strong>Household electricity rebound effect in Spain</strong><br>Energy Efficiency (2022)</p>
-</section>
-
-<!-- PARTNERS -->
-<section class="section">
-  <h2>Research Partners</h2>
-  <p><strong>Jaume Freire-González</strong> — IAE-CSIC, Barcelona School of Economics</p>
-  <p><strong>Emilio Padilla Rosa</strong> — Universitat Autònoma de Barcelona</p>
-</section>
-
-<!-- PROFILE -->
-<section class="section">
-  <h2>Profile</h2>
-  <p>Founded by Martín Bordón, economic researcher and policy advisor specializing in energy economics and public policy.</p>
-</section>
-
-<!-- CONTACT -->
-<section class="section">
-  <h2>Contact</h2>
-  <p>contact@bara-research.com</p>
-</section>
-
-</div>
-
-<footer class="wrap">
-  © 2026 BARA — Bordón Academic Research Advisory
 </footer>
 
 </body>
