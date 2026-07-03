@@ -25,11 +25,12 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 180px;
+      scroll-padding-top: 190px;
     }
 
     body {
       margin: 0;
+      padding-top: 170px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
@@ -42,8 +43,8 @@
     }
 
     #top {
-      scroll-margin-top: 0px;
-}
+      scroll-margin-top: 190px;
+    }
     p {
       color: var(--muted);
       font-size: 16px;
@@ -60,16 +61,21 @@
     header {
       background: var(--navy);
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 10;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
     .nav {
       height: 170px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 14px;
     }
 
     .brand img {
@@ -85,6 +91,7 @@
       display: flex;
       gap: 28px;
       align-items: center;
+      justify-content: center;
     }
 
     .menu a {
@@ -263,7 +270,7 @@
     section {
       padding: 76px 0;
       border-bottom: 1px solid var(--line);
-      scroll-margin-top: 180px;
+      scroll-margin-top: 190px;
     }
 
     .section-head {
@@ -431,11 +438,24 @@
     }
 
     @media (max-width: 900px) {
+      html {
+        scroll-padding-top: 125px;
+      }
+
+      body {
+        padding-top: 125px;
+      }
+
+      section,
+      #top {
+        scroll-margin-top: 125px;
+      }
+
       .nav {
-        height: auto;
-        padding: 18px 0;
+        height: 125px;
+        padding: 12px 0;
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
       }
 
       .brand img {
@@ -495,7 +515,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#" aria-label="BARA homepage">
+    <a class="brand" href="#top" aria-label="BARA homepage">
       <img src="bara-logo.png" alt="BARA — Bordón Academic Research Advisory logo">
     </a>
 
