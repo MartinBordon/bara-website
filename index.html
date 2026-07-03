@@ -25,12 +25,11 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 132px;
+      scroll-padding-top: 180px;
     }
 
     body {
       margin: 0;
-      padding-top: 118px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
@@ -43,8 +42,8 @@
     }
 
     #top {
-      scroll-margin-top: 132px;
-    }
+      scroll-margin-top: 0px;
+}
     p {
       color: var(--muted);
       font-size: 16px;
@@ -61,30 +60,24 @@
     header {
       background: var(--navy);
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 1000;
+      z-index: 10;
     }
 
     .nav {
-      min-height: 118px;
+      height: 170px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 0 12px;
+      justify-content: space-between;
     }
 
     .brand img {
-      height: 72px;
+      height: 150px;
       width: auto;
       display: block;
       background: white;
-      padding: 4px 10px;
+      padding: 6px 12px;
       border-radius: 4px;
     }
 
@@ -92,14 +85,12 @@
       display: flex;
       gap: 28px;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
     }
 
     .menu a {
       color: white;
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 500;
       opacity: 0.95;
     }
 
@@ -272,7 +263,7 @@
     section {
       padding: 76px 0;
       border-bottom: 1px solid var(--line);
-      scroll-margin-top: 132px;
+      scroll-margin-top: 180px;
     }
 
     .section-head {
@@ -440,28 +431,15 @@
     }
 
     @media (max-width: 900px) {
-      html {
-        scroll-padding-top: 118px;
-      }
-
-      body {
-        padding-top: 108px;
-      }
-
-      section,
-      #top {
-        scroll-margin-top: 118px;
-      }
-
       .nav {
-        min-height: 108px;
-        padding: 10px 0;
+        height: auto;
+        padding: 18px 0;
         flex-direction: column;
-        gap: 8px;
+        gap: 16px;
       }
 
       .brand img {
-        height: 54px;
+        height: 58px;
       }
 
       .menu {
@@ -517,7 +495,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="BARA homepage">
+    <a class="brand" href="#" aria-label="BARA homepage">
       <img src="bara-logo.png" alt="BARA — Bordón Academic Research Advisory logo">
     </a>
 
@@ -664,65 +642,64 @@
         <div class="card">
           <h3>Selected publications</h3>
 
-          <div class="research-list">
-            <article>
-              <h4>Worldwide Rebound Effects: A Multiregional Input–Output Analysis</h4>
-              <p>
-                Freire-González, J., Chen, Q., & Bordón-Lesme, M. (2026). Journal of Industrial Ecology.
-              </p>
-              <a class="link" href="https://link.springer.com/article/10.1007/s44498-026-00126-9" target="_blank" rel="noopener">View publication</a>
-            </article>
+<div class="research-list">
+  <article>
+    <h4>Worldwide Rebound Effects: A Multiregional Input–Output Analysis</h4>
+    <p>
+      Freire-González, J., Chen, Q., & Bordón-Lesme, M. (2026). Journal of Industrial Ecology.
+    </p>
+    <a class="link" href="https://link.springer.com/article/10.1007/s44498-026-00126-9" target="_blank" rel="noopener">View publication</a>
+  </article>
 
-            <article>
-              <h4>The direct rebound effect for two income groups: The case of Paraguay</h4>
-              <p>
-                Bordón-Lesme, M., Freire-González, J., & Padilla, E. (2022). Energy for Sustainable Development.
-              </p>
-              <a class="link" href="https://www.sciencedirect.com/science/article/pii/S0973082622001284" target="_blank" rel="noopener">View publication</a>
-            </article>
+  <article>
+    <h4>The direct rebound effect for two income groups: The case of Paraguay</h4>
+    <p>
+      Bordón-Lesme, M., Freire-González, J., & Padilla, E. (2022). Energy for Sustainable Development.
+    </p>
+    <a class="link" href="https://www.sciencedirect.com/science/article/pii/S0973082622001284" target="_blank" rel="noopener">View publication</a>
+  </article>
 
-            <article>
-              <h4>Do household energy services affect each other directly? The direct rebound effect of household electricity consumption in Spain</h4>
-              <p>
-                Bordón-Lesme, M., Freire-González, J., & Padilla, E. (2022). Energy Efficiency.
-              </p>
-              <a class="link" href="https://link.springer.com/article/10.1007/s12053-022-10048-7" target="_blank" rel="noopener">View publication</a>
-            </article>
-          </div>
-        </div>
+  <article>
+    <h4>Do household energy services affect each other directly? The direct rebound effect of household electricity consumption in Spain</h4>
+    <p>
+      Bordón-Lesme, M., Freire-González, J., & Padilla, E. (2022). Energy Efficiency.
+    </p>
+    <a class="link" href="https://link.springer.com/article/10.1007/s12053-022-10048-7" target="_blank" rel="noopener">View publication</a>
+  </article>
+</div>
 
         <div class="card">
           <h3>Working papers</h3>
 
-          <div class="research-list">
-            <article>
-              <h4>Modeling Paraguay's Electricity Peak Demand: Evidence from 26 Years of Hourly System Load Data</h4>
-              <p>Bordón-Lesme, M. Working paper.</p>
-            </article>
+<div class="research-list">
+  <article>
+    <h4>Modeling Paraguay's Electricity Peak Demand: Evidence from 26 Years of Hourly System Load Data</h4>
+    <p>Bordón-Lesme, M. Working paper.</p>
+  </article>
 
-            <article>
-              <h4>Energy Poverty Index for Paraguay: Measurement and Policy Implications</h4>
-              <p>Bordón-Lesme, M. Working paper.</p>
-            </article>
+  <article>
+    <h4>Energy Poverty Index for Paraguay: Measurement and Policy Implications</h4>
+    <p>Bordón-Lesme, M. Working paper.</p>
+  </article>
 
-            <article>
-              <h4>System Dynamic Analysis of Energy Consumption and the Rebound Effect</h4>
-              <p>Bordón-Lesme, M., Blanco, G., Freire-González, J., & Padilla, E. Working paper.</p>
-            </article>
+  <article>
+    <h4>System Dynamic Analysis of Energy Consumption and the Rebound Effect</h4>
+    <p>Bordón-Lesme, M., Blanco, G., Freire-González, J., & Padilla, E. Working paper.</p>
+  </article>
 
-            <article>
-              <h4>Charting Energy Transition: Assessing the Direct Rebound Effect of Natural Gas in Spanish Households</h4>
-              <p>Bordón-Lesme, M., Freire-González, J., & Padilla, E. Working paper.</p>
-            </article>
-          </div>
-        </div>
-      </div>
+  <article>
+    <h4>Charting Energy Transition: Assessing the Direct Rebound Effect of Natural Gas in Spanish Households</h4>
+    <p>Bordón-Lesme, M., Freire-González, J., & Padilla, E. Working paper.</p>
+  </article>
+</div>
 
       <div class="cards-2" style="margin-top:26px;">
         <div class="card">
           <h3>Research areas</h3>
           <p>
-            Energy economics, electricity markets, electricity demand modeling, energy poverty, rebound effects, applied econometrics, input-output analysis, system dynamics, composite indicators, and public policy evaluation.
+            Energy economics, <p>
+  Energy economics, electricity markets, electricity demand modeling, energy poverty, rebound effects, applied econometrics, input-output analysis, system dynamics, composite indicators, and public policy evaluation.
+</p>.
           </p>
         </div>
 
@@ -805,7 +782,7 @@
             Founded by Martín Bordón (Bordón-Lesme), economic researcher and policy advisor specializing in energy economics and public policy. His academic publications are indexed under the name Bordón-Lesme.
           </p>
           <p>
-            His work focuses on energy poverty, rebound effects, household energy demand, and electricity system analysis. He has published in peer-reviewed journals including Journal of Industrial Ecology, Energy Efficiency, and Energy for Sustainable Development.
+            His work focuses on energy poverty, rebound effects, household energy demand, and electricity system analysis. He has published in peer-reviewed journals including Journal of Industrial Ecology, Energy Efficiency and Energy for Sustainable Development.
           </p>
         </div>
 
